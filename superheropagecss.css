@@ -1,0 +1,41 @@
+body{
+	background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2015/07/12/749106/b0b4db1a645a523397fc9c729ff16aff-700.jpg);
+	/*opacity:0.6;*/
+	background-size: cover;
+	background-blend-mode: lighten;
+	background-attachment: fixed;
+	color: white;
+}
+.info{
+	display: flex;
+	justify-content: space-between;
+	text-transform: capitalize;
+	width:300px;
+	margin: 20px;
+}
+.span1{
+	width: 40%;
+  border: 1px solid white;
+  padding: 5px;
+  box-shadow: -1rem 0.3rem 3rem black;
+}
+.span2{
+	width:60%;
+	text-align: center;
+	border: 1px solid white;
+  padding: 5px;
+  box-shadow: -1rem 0.3rem 3rem black;
+}
+.button {
+  background-color: #f5dede;
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+}

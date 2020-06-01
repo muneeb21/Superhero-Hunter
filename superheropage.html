@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Superhero App</title>
+    <script src="https://kit.fontawesome.com/b962e18856.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./superheropagecss.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<center>
+		<div id="title" style="margin: 60px; font-size: 2rem;font-family: sans-serif;text-transform: uppercase;">
+			
+		</div>
+		<div >
+			<img id="hero-image" style=" box-shadow: -1rem 0.3rem 3rem black;">
+		</div>
+		<div id="info-div" style="margin-top: 20px;">
+			<div class="info"  >
+				<!-- <span class="span1"  ></span>
+				<span class ="span2" ></span> -->
+			</div>
+		</div>
+		<a href="./index.html" class="button">Back</a>
+	</center>
+	
+	<script type="text/javascript">
+		var superhero=localStorage.getItem("superhero-name");
+		console.log(superhero);
+		document.getElementById("title").innerHTML =localStorage.getItem("superhero-name");
+		var xhrRequest=new XMLHttpRequest();
+     xhrRequest.onload= function(){
+     	console.log(xhrRequest.response);
+     	var responseJSON=JSON.parse(xhrRequest.response);
+     	
+     	
+           var x=responseJSON.results;
+           var len=x.length;
+           var imageUrl=x[len-1].image.url;
+           
+           document.getElementById("hero-image").style.height = "450px";
+           document.getElementById("hero-image").style.width = "350px";
+       
+           
+           document.getElementById("hero-image").setAttribute("src",imageUrl);
+           var biography=responseJSON.results[0].biography;
+           var k=0;
+           for(var i in biography){
+              if(k>=2){
+              	break;
+              }
+              // console.log(i,powerstats[i]);
+           	var element=biography[i];
+           	var object_name=i+" :     ";
+           	var t2=document.createTextNode(element);
+            var t1=document.createTextNode(object_name);
+            var span1 = document.createElement("span");
+            var span2= document.createElement("span");
+           	// console.log(text);
+            span1.appendChild(t1);span1.className="span1";
+            span2.appendChild(t2);span2.className="span2";
+            var info = document.createElement("DIV");
+             info.className="info";
+             info.appendChild(span1);
+             info.appendChild(span2);
+             document.getElementById("info-div").appendChild(info);
+             k++;
+
+           }
+
+           var powerstats=responseJSON.results[0].powerstats;
+           
+
+           for(var i in powerstats){
+           	
+           	// console.log(i,powerstats[i]);
+           	var element=powerstats[i];
+           	var object_name=i+" :     ";
+           	// console.log(element);
+           	
+            var t2=document.createTextNode(element);
+            var t1=document.createTextNode(object_name);
+            var span1 = document.createElement("span");
+            var span2= document.createElement("span");
+             span1.appendChild(t1);span1.className="span1";
+            span2.appendChild(t2);span2.className="span2";
+           	// console.log(text);
+            span1.appendChild(t1);
+            span2.appendChild(t2);
+            var info = document.createElement("DIV");
+             info.className="info";
+             info.appendChild(span1);
+             info.appendChild(span2);
+             document.getElementById("info-div").appendChild(info);
+
+           }
+     	
+     };
+     var string="https://superheroapi.com/api/3076078909145759/search/"+superhero;
+     xhrRequest.open('get',string);
+     xhrRequest.send();
+	</script>
+</body>
+</html>
