@@ -37,7 +37,7 @@
    	let heroname=superhero_array[i];
    	console.log(heroname);
    	let xhrRequest=new XMLHttpRequest();
-    var string="https://superheroapi.com/api/3076078909145759/search/"+ heroname;
+    var string="https://superheroapi.com/api.php/3076078909145759/search/"+ heroname;
      xhrRequest.open('get',string);
      xhrRequest.send();
    	xhrRequest.onload= function(){
