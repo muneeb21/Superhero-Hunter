@@ -1,6 +1,6 @@
 body{
 	background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2015/07/12/749106/b0b4db1a645a523397fc9c729ff16aff-700.jpg);
-	/*opacity:0.6;*/
+	
 	background-size: cover;
 	background-blend-mode: lighten;
 	background-attachment: fixed;
@@ -36,6 +36,5 @@ body{
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  /*margin: 4px 2px;*/
-  cursor: pointer;
+    cursor: pointer;
 }
